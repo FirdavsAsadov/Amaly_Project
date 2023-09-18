@@ -15,18 +15,28 @@ namespace Amaly_Project.Controllers
             _userService = userService;
         }
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<User>>> GetUser()
+        public async Task<ActionResult<IEnumerable<User>>> GetUser(int userId)
         {
-            if (_userService == null)
-            {
-                return NotFound();
-            }
-            return await _userService.get
+            _userService.GetById(userId);
+            return Ok("Success");
         }
         [HttpPost]
         public async Task<ActionResult<User>> AddUser(User user)
         {
             _userService.Add(user);
+            return Ok("Sucecfully");
+        }
+
+        [HttpDelete]
+        public async Task<ActionResult<User>> RemoveUser(int userId)
+        {
+            _userService.Remove(userId);
+            return Ok("Sucecfully");
+        }
+        [HttpPut]
+        public async Task<ActionResult<User>> UpdateUser(User user)
+        {
+            _userService.Update(user);
             return Ok("Sucecfully");
         }
     }

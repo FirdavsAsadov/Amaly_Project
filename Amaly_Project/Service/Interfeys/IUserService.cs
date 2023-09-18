@@ -7,6 +7,7 @@ namespace Amaly_Project.Service.Interfeys
         public void Add(User user);
         public void Remove(int id);
         public void Update(User user);
+        public User GetById(int id);
         
     }
 }

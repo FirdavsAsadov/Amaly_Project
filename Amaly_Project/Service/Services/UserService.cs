@@ -48,5 +48,9 @@ namespace Amaly_Project.Service.Services
                 _eFcoreContext.SaveChanges();
             }
         }
+        public User GetById(int id)
+        {
+            return _eFcoreContext.Users.FirstOrDefault(x => x.Id == id);
+        }
     }
 }
